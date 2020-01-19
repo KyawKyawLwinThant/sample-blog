@@ -41,8 +41,5 @@ public class AuthorController {
         return "admin/authors";
 
     }
-    @GetMapping("/layout")
-    public String testLayout(){
-        return "layout/adminlayout";
-    }
+
 }
