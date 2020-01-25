@@ -19,6 +19,17 @@
                         </p>
 
                     </div>
+                    <div th:if="${delete}">
+                        <p role="alert" class="alert alert-success">
+                            Blog is successfully deleted!
+                        </p>
+                    </div>
+
+                    <div th:if="${update}">
+                        <p role="alert" class="alert alert-success">
+                            Blog is successfully updated!
+                        </p>
+                    </div>
 
                     <table class="table">
                         <thead>
@@ -27,6 +38,9 @@
                             <th>Category</th>
                             <th>Body</th>
                             <th>Author</th>
+                            <th>Details</th>
+                            <th>Delete</th>
+                            <th>Update</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -35,11 +49,20 @@
                             <td th:text="${blog.category}"></td>
                             <td th:text="${#strings.substring(blog.body,0,10)}"></td>
                             <td th:text="${blog.author.name}"></td>
+                            <td><a href="#" th:href="@{'/blog/'+ ${blog.id}}"
+                                   class="btn btn-primary">Details</a></td>
+                            <td><a href="#" th:href="@{'/blog/delete/'+${blog.id}}"
+                            class="btn btn-primary">Delete</a></td>
+                            <td><a href="#" th:href="@{'/blog/update/'+${blog.id}}"
+                            class="btn btn-primary">Update</a></td>
                         </tr>
 
                         </tbody>
                     </table>
+
                 </div>
+
+                <a href="#" th:href="@{/blog}" class="btn btn-primary">New Blog</a>
 
             </div>
 
